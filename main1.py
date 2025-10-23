@@ -12,14 +12,18 @@ SYSTEM_PROMPT = """
 ## USER MESSAGE {user_message}  
 """
 
+client = Client(
+   host='http://localhost:11434',
+   headers={'x-some-header': 'some-value'}
+)
+response = client.chat(model='llama3.2:3b', messages=[
+   {
+   'role': 'user',
+      'content': SYSTEM_PROMPT.format(user_message="I want to make carbonara for tonight's dinner."),
+   },
+])
+
+print(response)
+
 if __name__ == '__main1__':
-    client = Client(
-     host='http://localhost:11434',
-    headers={'x-some-header': 'some-value'}
-    )
-    response = client.chat(model='llama3.2:3b', messages=[
-    {
-     'role': 'user',
-        'content': 'Why is the sky blue?',
-     },
-    ])
+   pass
